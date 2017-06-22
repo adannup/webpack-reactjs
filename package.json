@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/server"
+    "start": "babel-node src/server",
+    "production": "NODE_ENV=production BABEL_ENV=production npm run build && npm start",
+    "build": "NODE_ENV=production webpack --config webpack.config.babel.js",
+    "build_windows": "SET NODE_ENV=production&& webpack --config webpack.config.babel.js && node --max-old-space-size=6144"
+
   },
   "keywords": [],
   "author": "",
@@ -25,7 +29,8 @@
     "url-loader": "^0.5.9",
     "webpack": "^3.0.0",
     "webpack-dev-middleware": "^1.11.0",
-    "webpack-hot-middleware": "^2.18.0"
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-split-chunks": "^0.2.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
