@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import path from 'path';
 import ChunksPlugin from 'webpack-split-chunks';
 
-// Enviroment
+// Environment
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // Paths
@@ -23,7 +23,7 @@ const getEntry = () => {
 	console.log(entry);
 	return entry;
 };
-const getOtuput = () => ({
+const getOutput = () => ({
 	path: PATHS.build,
 	publicPath: '/',
 	filename: '[name].bundle.js'
@@ -66,7 +66,7 @@ const getLoaders = () => ({
 				loaders: ['style-loader', 'css-loader']
 			},
 			{
-				test: /\.svg(\?v=d+\.\d+\.\d+)?$/,
+				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 				loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
 			}
 		]
@@ -76,7 +76,7 @@ const getLoaders = () => ({
 export default {
 	devtool: getDevtool(),
 	entry: getEntry(),
-	output: getOtuput(),
+	output: getOutput(),
 	plugins: getPlugins(),
 	module: getLoaders()
-}
+};

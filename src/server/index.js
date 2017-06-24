@@ -12,7 +12,7 @@ import webpackConfig from '../../webpack.config.babel';
 // Server Port
 const port = 3000;
 
-// Enviroment
+// Environment
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // Express app
